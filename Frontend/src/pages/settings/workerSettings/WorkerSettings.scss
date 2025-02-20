@@ -1,0 +1,109 @@
+@import "/src/global.scss";
+
+#page-settings-worker {
+  background-color: var(--background-1);
+  min-height: 100vh;
+  @include flex-items(column);
+  padding-bottom: 50px;
+
+  .container-img-worker-settings {
+    width: 95%;
+    max-width: 800px;
+    max-height: 40vh;
+    @include flex-items(column);
+    gap: 20px;
+
+    h2 {
+      color: var(--text-1);
+      text-align: center;
+      font-size: $font-subtitle-1;
+    }
+
+    .coffeShop-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 15px;
+      // box-shadow: 0 0 25px 2px black;
+    }
+  }
+
+  main#worker-setttings {
+    @include flex-items(column);
+    color: var(--text-2);
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+    width: 90%;
+  }
+
+  #settings-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  section#section-log-out {
+    a {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+    }
+
+    svg {
+      margin: 0 auto;
+      font-size: 2em;
+    }
+
+    p {
+      color: grey;
+    }
+
+    width: 100%;
+    // @include flex-items;
+
+
+    .container-logout {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px;
+      background: transparent;
+      overflow: hidden;
+      cursor: pointer;
+      border-radius: 10px;
+    }
+
+    .container-logout h1,
+    .container-logout svg {
+      position: relative;
+      z-index: 1;
+      color: var(--text-2);
+      transition: color 0.3s ease;
+    }
+
+    .container-logout::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: red;
+      transform: translateX(-100%);
+      transition: transform 0.5s ease-in-out;
+      z-index: 0;
+    }
+
+    .container-logout:hover::before {
+      transform: translateX(0);
+    }
+
+    .container-logout:hover h1,
+    .container-logout:hover svg {
+      color: white;
+    }
+
+  }
+}

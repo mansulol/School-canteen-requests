@@ -1,0 +1,131 @@
+@import '/src/global.scss';
+
+.order-card {
+  background-color: var(--background-2);
+  width: 80%;
+  // max-width: 290px;
+  padding: 20px;
+  border-radius: 15px;
+  @include flex-items(column);
+  gap: 10px;
+
+  .card-order-header {
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    color: var(--text-3);
+    font-size: $font-size-small;
+    font-weight: 500;
+  }
+
+  .text-name-student {
+    text-align: start;
+    color: var(--text-1);
+    width: 90%;
+    @include flex-items;
+
+    span {
+      margin: 0 5px;
+    }
+  }
+
+  .card-order-content {
+    width: 100%; // Ocupa todo el ancho del contenedor
+    display: flex;
+    flex-direction: column; // Organiza los elementos en columna
+  
+    thead {
+      width: 100%; // Ancho completo
+      display: flex;
+      justify-content: space-around; // Distribuye las columnas equitativamente
+      background-color: var(--borders-separators-2); // Fondo suave
+      color: var(--text-2); // Color de texto
+      font-weight: bold; // Negrita para destacar
+
+      .container-quantity-table-orders{
+        width: 10px;
+      }
+  
+      th {
+        padding: 10px; // Espaciado interno
+        text-align: center; // Alineación centrada
+        flex: 1; // Cada columna ajusta su tamaño automáticamente
+      }
+    }
+  
+    tbody {
+      width: 100%; // Ancho completo
+      color: var(--text-2); // Color de texto
+      background-color: transparent; // Sin fondo visible
+
+      .container-quantity-table-orders{
+        width: 10px;
+      }
+  
+      tr {
+        width: 100%; // Ancho completo
+        display: grid;
+        grid-template-columns: .2fr 1.8fr .2fr .2fr;
+        
+      }
+    }
+  
+    h4 {
+      margin: 10px 0; // Margen superior e inferior
+      text-align: center; // Centrado horizontal
+      color: var(--text-3); // Color de texto alternativo
+      font-style: italic; // Itálica para destacar
+    }
+  }
+
+  .container-btn-card-order {
+    width: 100%;
+    @include flex-items;
+    gap: 10px;
+    height: 28px;
+
+    .btn-card-order {
+      flex: 1;
+      height: 100%;
+      border-radius: 7px;
+      border: 0;
+      background-color: var(--interactive-2);
+      color: var(--text-1);
+      font-size: $font-size-small;
+      font-weight: bold;
+      @include flex-items;
+    }
+
+    .btn-card-order:active {
+      transform: scale(.8);
+    }
+
+    .btn-done {
+      background-color: $primary-color;
+    }
+  }
+}
+
+@media (min-width: 800px) {
+
+  // OWNER SIDE
+
+  .order-card {
+
+    header.card-order-header {
+      p {
+        font-size: $font-size-medium-big;
+        font-weight: 700;
+      }
+    }
+
+    .card-order-content p {
+      font-size: $font-size-medium-big;
+    }
+
+    .container-btn-card-order .btn-card-order {
+      height: 125%;
+      font-size: 1.5em;
+    }
+  }
+}

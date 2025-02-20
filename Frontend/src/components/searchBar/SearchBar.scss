@@ -1,0 +1,51 @@
+@import "/src/global.scss";
+
+nav#header-container {
+	color: white;
+	background-color: $secondary-color;
+	top: 0;
+	width: 100%;
+	position: fixed;
+	z-index: 1000;
+	padding: 10px;
+	box-sizing: border-box;
+
+	div {
+		background-color: #fff;
+		border-radius: 20px;
+
+
+		h2 {
+			font-size: 1.5em;
+			color: black;
+			text-align: center;
+		}
+
+		input {
+			color: rgb(71, 71, 71);
+			font-weight: bold;
+		}
+	}
+
+	input {
+		background-color: transparent;
+		border: none;
+		height: 100%;
+		font-size: 1.2rem;
+		width: 100%;
+		margin-left: 5px;
+		color: $third-color;
+	}
+
+	input:focus {
+		outline: none;
+	}
+}
+
+ @media (min-width: 800px) {
+	nav#header-container{
+		div h2{
+			font-size: $font-size-title;
+		}
+	}
+ }

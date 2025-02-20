@@ -1,0 +1,32 @@
+@import '/src/global.scss';
+
+#Orders-page {
+  background-color: var(--background-1);
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  // gap: 20px;
+  padding-bottom: 100px;
+
+  #orders-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 100%;
+    gap: 20px;
+    // padding: 60px 0;
+
+    .cup-img-logo{
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 100px;
+      color: var(--background-3);
+    }
+  }
+}

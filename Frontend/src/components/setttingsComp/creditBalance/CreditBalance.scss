@@ -1,0 +1,111 @@
+@import "/src/global.scss";
+
+#credits-balance-container {
+  margin-top: 70px;
+  width: 94%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  gap: 50px;
+
+  div {
+    width: 100%;
+    @include flex-items;
+  }
+
+  .container-credit-balance {
+    background-color: var(--background-3);
+    height: 140px;
+    border-radius: 10px;
+    width: 100%;
+
+    .text-credit-balance {
+      font-size: 64px;
+      text-align: center;
+      font-weight: 600;
+      color: var(--text-1);
+    }
+
+    @media (min-width: 800px) {
+      .text-credit-balance {
+        font-size: $font-t-H1;
+      }
+    }
+  }
+
+  @media (min-width: 800px) {
+    .container-credit-balance {
+      height: 20vh;
+    }
+  }
+
+  .container-control-credit-add {
+    gap: 20px;
+    height: 40px;
+
+    .btn-credits-balance {
+      height: 100%;
+      max-width: 180px;
+      @include flex-items;
+      flex: 1;
+      background-color: var(--background-3);
+      border: 0;
+      border-radius: 10px;
+      font-size: $font-body-large;
+      color: var(--text-2);
+      font-weight: 600;
+    }
+
+    .btn-credits-balance:active {
+      transform: scale(.8);
+    }
+
+    @media (min-width: 800px) {
+      .btn-credits-balance {
+          font-size: $font-t-body-small;
+          padding: 30px;
+      }
+    }
+  }
+
+  .modal-container {
+    width: 75%;
+
+    .content-modal {
+      width: 100%;
+
+      div {
+        width: 100%;
+      }
+
+      .input-inputform-setting-1 {
+        height: 40px;
+        margin-top: 0;
+      }
+
+      .container-radio-list {
+        margin: 0;
+
+        .card-radio-item-credit {
+          font-size: 40px;
+        }
+      }
+    }
+
+    .btn-modal-credits {
+      height: 35px;
+      width: 50%;
+      max-width: 170px;
+      padding: 0 20px;
+      @include flex-items;
+      border: 0;
+      border-radius: 10px;
+      background-color: var(--background-3);
+      color: var(--text-2);
+      font-size: $font-body-small;
+      font-weight: 600;
+    }
+
+  }
+}
