@@ -1,31 +1,34 @@
-module.exports = (app) => {
-  const order = require("../controllers/order.controller.js");
-  const auth = require("../controllers/auth.js");
+const order = require("../controllers/order.controller.js");
+const auth = require("../controllers/auth.js");
 
-  const authToken = require("../middlewares/auth.js");
+const authToken = require("../middlewares/auth.js");
 
-  var router = require("express").Router();
+var router = require("express").Router();
 
-  // Retrieve all orders
-  router.get("/", authToken, auth.isAuthenticated, order.findAll);
-  
-  // Retrieve one order
-  router.get("/:id", authToken, auth.isAuthenticated, order.findOne);
+// Retrieve all orders
+router.get("/", authToken, auth.isAuthenticated, order.findAll);
 
-  // Retrieve order from one student
-  router.get("/:student/:id", authToken, auth.isAuthenticated, order.findAllByStudent);
+// Retrieve one order
+router.get("/:id", authToken, auth.isAuthenticated, order.findOne);
 
-  // Create a order
-  router.post("/", authToken, auth.isAuthenticated, order.create);
+// Retrieve order from one student
+router.get(
+  "/:student/:id",
+  authToken,
+  auth.isAuthenticated,
+  order.findAllByStudent
+);
 
-  // Update order
-	router.put("/:id", authToken, auth.isAuthenticated, order.update);
+// Create a order
+router.post("/", authToken, auth.isAuthenticated, order.create);
 
-  // Finish a order
-	router.put("/finish/:id", authToken, auth.isAuthenticated, order.finish);
+// Update order
+router.put("/:id", authToken, auth.isAuthenticated, order.update);
 
-  // Delete orders
-  router.delete("/:id", authToken, auth.isAuthenticated, order.delete);
+// Finish a order
+router.put("/finish/:id", authToken, auth.isAuthenticated, order.finish);
 
-  app.use("/api/orders", router);
-};
+// Delete orders
+router.delete("/:id", authToken, auth.isAuthenticated, order.delete);
+
+module.exports = router;

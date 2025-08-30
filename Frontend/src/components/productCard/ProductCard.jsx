@@ -8,7 +8,7 @@ function Product({ id, img, title, altText}) {
     navigate(url, { state: { productId: id } });
   };
 
-  const folder = "http://localhost:8080/images/";
+  const folder = "http://localhost:8080/images/product/";
 
   return (
     <div

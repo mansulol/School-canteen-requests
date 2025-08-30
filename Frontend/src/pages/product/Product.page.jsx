@@ -14,7 +14,7 @@ import OrderContext from "../../contexts/OrderContext";
 
 function Product() {
   const navigate = useNavigate();
-  const folder = "http://localhost:8080/images/";
+  const folder = "http://localhost:8080/images/product/";
   const [ordered, setOrdered] = useState(false);
   const [product, setProduct] = useState({});
   const [quantity, setQuantity] = useState(1);

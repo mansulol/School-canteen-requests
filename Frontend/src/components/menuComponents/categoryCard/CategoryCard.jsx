@@ -1,14 +1,14 @@
 import "./CategoryCard.scss";
 import { useNavigate } from "react-router-dom";
 
-function CategoryCard({ id, title, count, photo}) {
+function CategoryCard({ id, title, count, photo }) {
   const navigate = useNavigate();
 
   const handleNavigate = (url) => {
     navigate(url, { state: { categoryId: id } });
   };
 
-  const folder = "http://localhost:8080/images/";
+  const folder = "http://localhost:8080/images/product/";
   console.log(photo);
 
   return (
@@ -29,7 +29,6 @@ function CategoryCard({ id, title, count, photo}) {
       </div>
     </div>
   );
-  
 }
 
 export default CategoryCard;

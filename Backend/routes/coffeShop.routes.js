@@ -1,4 +1,4 @@
-module.exports = (app) => {
+
     const coffeShop = require("../controllers/coffeShop.controller.js");
     const auth = require("../controllers/auth.js"); 
     const multer = require('../middlewares/multer.js')
@@ -23,6 +23,4 @@ module.exports = (app) => {
     //Delete coffeShop
     router.delete("/:id", authToken, auth.isAuthenticated, coffeShop.delete);
 
-    app.use('/api/coffeShop', router);
-
-};
+    module.exports = router
