@@ -1,34 +1,42 @@
-module.exports = (app) => {
-  const orderLine = require("../controllers/orderLine.controller.js");
-  const auth = require("../controllers/auth.js");
+const orderLine = require("../controllers/orderLine.controller.js");
+const auth = require("../controllers/auth.js");
 
-  const authToken = require("../middlewares/auth.js");
+const authToken = require("../middlewares/auth.js");
 
-  var router = require("express").Router();
+var router = require("express").Router();
 
-  // Retrieve all orderLines
-  router.get("/", authToken, auth.isAuthenticated, orderLine.findAll);
-  
-  // Retrieve one order line
-  router.get("/:id", authToken, auth.isAuthenticated, orderLine.findOne);
+// Retrieve all orderLines
+router.get("/", authToken, auth.isAuthenticated, orderLine.findAll);
 
-  // Get order lines by order
-  router.get("/orders/:id", authToken, auth.isAuthenticated, orderLine.findByOrders);
+// Retrieve one order line
+router.get("/:id", authToken, auth.isAuthenticated, orderLine.findOne);
 
-  // Create a order line
-  router.post("/", authToken, auth.isAuthenticated, orderLine.create);
-  
-  // Create a lot of order lines once
-  router.post("/lines/", authToken, auth.isAuthenticated, orderLine.bulkCreate);
+// Get order lines by order
+router.get(
+  "/orders/:id",
+  authToken,
+  auth.isAuthenticated,
+  orderLine.findByOrders
+);
 
-  // Update order line
-	router.put("/:id", authToken, auth.isAuthenticated, orderLine.update);
+// Create a order line
+router.post("/", authToken, auth.isAuthenticated, orderLine.create);
 
-  // Delete order lines
-  router.delete("/:id", authToken, auth.isAuthenticated, orderLine.delete);
+// Create a lot of order lines once
+router.post("/lines/", authToken, auth.isAuthenticated, orderLine.bulkCreate);
 
-  // Delete order lines by order id
-  router.delete("/lines/:id", authToken, auth.isAuthenticated, orderLine.deleteByOrder);
+// Update order line
+router.put("/:id", authToken, auth.isAuthenticated, orderLine.update);
 
-  app.use("/api/orderLine", router);
-};
+// Delete order lines
+router.delete("/:id", authToken, auth.isAuthenticated, orderLine.delete);
+
+// Delete order lines by order id
+router.delete(
+  "/lines/:id",
+  authToken,
+  auth.isAuthenticated,
+  orderLine.deleteByOrder
+);
+
+module.exports = router;

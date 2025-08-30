@@ -8,35 +8,30 @@ const app = express();
 
 // Middlewares
 app.use(express.static(path.join(__dirname, "public")));
-app.use(cors({ origin: "http://localhost:5173" }));
 app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
 
+// EJS Views for SSR rendering
+// app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
+
 var corsOptions = {
   origin: "http://localhost:5173",
 };
+
 app.use(cors(corsOptions));
 
+const routes = require("./routesConfig.js");
 // const db = require('./models')
 
 // db.sequelize.sync({ force: true }).then(() => {
 //   console.log("Drop and re-sync db");
 // });
 
-// Rutas
-require("./routes/coffeShop.routes")(app);
-require("./routes/admin.routes")(app);
-require("./routes/worker.routes")(app);
-require("./routes/student.routes")(app);
-require("./routes/school.routes")(app);
-require("./routes/categories.routes")(app);
-require("./routes/product.routes")(app);
-require("./routes/course.routes")(app);
-require("./routes/order.routes")(app);
-require("./routes/orderLine.routes")(app);
-require("./routes/wallet.routes")(app);
-require("./routes/site.routes")(app);
+Object.entries(routes).forEach(([route, handler]) => {
+  app.use(route, handler);
+});
 
 // Ruta de bienvenida
 app.get("/", (req, res) => {

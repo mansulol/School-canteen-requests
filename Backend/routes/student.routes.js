@@ -1,4 +1,3 @@
-module.exports = (app) => {
 	const student = require("../controllers/student.controller.js");
 	const auth = require("../controllers/auth.js");
 	const multer = require('../middlewares/multer.js')
@@ -29,6 +28,4 @@ module.exports = (app) => {
 	//Delete student 
 	router.delete("/:id", authToken, auth.isAuthenticated, student.delete);
 
-	app.use('/api/student', router);
-
-};
+module.exports = router

@@ -1,12 +1,10 @@
-module.exports = (app) => {
-  const auth = require("../controllers/auth.js");
-  let authToken = require('../middlewares/auth.js')
-  
-  var router = require("express").Router();
+const auth = require("../controllers/auth.js");
+let authToken = require("../middlewares/auth.js");
 
-  router.post("/", authToken, auth.signin);
+var router = require("express").Router();
 
-  router.get("ws", authToken, auth.signin);
+router.post("/", authToken, auth.signin);
 
-  app.use("/api/site", router);
-}
+router.get("ws", authToken, auth.signin);
+
+module.exports = router;

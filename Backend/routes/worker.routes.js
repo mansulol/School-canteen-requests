@@ -1,4 +1,3 @@
-module.exports = (app) => {
     const worker = require("../controllers/worker.controller.js");
     const auth = require("../controllers/auth.js");
     const multer = require('../middlewares/multer.js')
@@ -24,5 +23,4 @@ module.exports = (app) => {
 	//Delete worker 
 	router.delete("/:id", authToken, auth.isAuthenticated, worker.delete);
 
-	app.use('/api/worker', router);
-};
+module.exports = router
